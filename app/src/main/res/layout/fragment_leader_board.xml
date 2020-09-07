@@ -11,22 +11,9 @@
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LeaderBoardFragment">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/leaderboard_tool_bar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:menu="@menu/submit_menu"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:title="@string/leader_board" >
-
-        </androidx.appcompat.widget.Toolbar>
-
+        tools:context=".screens.learning_leaders.LeaderBoardFragment">
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/learning_recycler_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -34,7 +21,8 @@
             tools:listitem="@layout/learning_leaders_item_view"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/leaderboard_tool_bar" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

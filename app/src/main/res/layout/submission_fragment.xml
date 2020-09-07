@@ -1,13 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SubmissionFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
+    <data>
+
+        <variable
+            name="submitViewModel"
+            type="ernestkoko.gads.gadsstagetwotask.submit.SubmissionViewModel" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/submit_toolbar2"
+            layout="@layout/custom_toolbar2" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:background="@android:color/transparent"
+        tools:context=".submit.SubmissionFragment">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/submit_toolbar"
+             />
+
+        <TextView
+            android:id="@+id/submit_text"
+            android:layout_width="@dimen/zero_dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/thirty_sp"
+            android:contentDescription="@string/project_submission_text"
+            android:text="@string/project_submission"
+            android:textAlignment="center"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/twenty_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/submit_toolbar" />
+
+        <TextView
+            android:id="@+id/straight_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@drawable/custom_line"
+            app:layout_constraintEnd_toEndOf="@id/submit_text"
+            app:layout_constraintStart_toStartOf="@id/submit_text"
+            app:layout_constraintTop_toBottomOf="@+id/submit_text" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/first_name"
+            style="@style/EditTextCustomStyle"
+            android:layout_marginStart="@dimen/four_dp"
+            android:layout_marginTop="40sp"
+            android:layout_marginEnd="@dimen/seven_dp"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/straight_line">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextInputStyle"
+                android:background="@drawable/text_background"
+                android:contentDescription="@string/enter_your_first_name_here"
+                android:hint="@string/first_name"
+                android:inputType="textPersonName|textCapWords"
+                android:text="@={submitViewModel.firstName}" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/last_name"
+            style="@style/EditTextCustomStyle"
+            android:layout_marginStart="@dimen/seven_dp"
+            android:layout_marginEnd="@dimen/four_dp"
+            android:hint="@string/last_name"
+            app:layout_constraintBaseline_toBaselineOf="@+id/first_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/first_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextInputStyle"
+                android:contentDescription="@string/enter_your_last_name_here"
+                android:inputType="textPersonName|textCapWords"
+                android:text="@={submitViewModel.lastName}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/four_dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_address"
+            style="@style/EditTextCustomStyle"
+            android:layout_marginTop="@dimen/thirty_sp"
+            app:layout_constraintEnd_toEndOf="@id/last_name"
+            app:layout_constraintStart_toStartOf="@id/first_name"
+            app:layout_constraintTop_toBottomOf="@id/first_name">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextInputStyle"
+                android:contentDescription="@string/enter_you_email_address_here"
+                android:hint="@string/email_address"
+                android:inputType="textEmailAddress"
+                android:text="@={submitViewModel.email}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/github_link"
+            style="@style/EditTextCustomStyle"
+            android:layout_marginTop="@dimen/thirty_sp"
+            app:layout_constraintEnd_toEndOf="@id/email_address"
+            app:layout_constraintStart_toStartOf="@id/email_address"
+            app:layout_constraintTop_toBottomOf="@id/email_address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/EditTextInputStyle"
+                android:contentDescription="@string/enter_your_project_github_link_here"
+                android:hint="@string/project_on_github_link_c"
+                android:inputType="text"
+                android:text="@={submitViewModel.githubLink}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/submit_button_final"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/thirty_sp"
+            android:background="@drawable/custom_button"
+            android:onClick="@{()-> submitViewModel.onSubmitButtonClicked()}"
+            android:paddingStart="20dp"
+            android:paddingTop="@dimen/seven_dp"
+            android:paddingRight="30dp"
+            android:paddingBottom="@dimen/seven_dp"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/github_link"
+            app:layout_constraintStart_toStartOf="@id/github_link"
+            app:layout_constraintTop_toBottomOf="@+id/github_link" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </LinearLayout>
+</layout>
