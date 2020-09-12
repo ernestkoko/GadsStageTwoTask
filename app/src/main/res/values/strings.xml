@@ -19,4 +19,8 @@
     <string name="enter_your_first_name_here">Enter your first name here</string>
     <string name="project_submission_text">Project submission text</string>
     <string name="google_africa">Google Africa</string>
+    <string name="are_you_sure">Are you sure</string>
+    <string name="yes">Yes</string>
+    <string name="submission_successful">Submission Successful</string>
+    <string name="submission_not_successful">Submission Not Successful</string>
 </resources>

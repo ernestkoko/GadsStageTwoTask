@@ -1,4 +1,4 @@
-package ernestkoko.gads.gadsstagetwotask.submit
+package ernestkoko.gads.gadsstagetwotask.screens.submit
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,6 +29,9 @@ class SubmissionViewModel : ViewModel() {
     private var _isValidEmail = MutableLiveData<Boolean>()
     val isValidEmail: LiveData<Boolean>
         get() = _isValidEmail
+    private var _popUpAreYouSureFragment = MutableLiveData<Boolean>()
+    val popUpAreYouSureFragment: LiveData<Boolean>
+    get() = _popUpAreYouSureFragment
 
     /**
      * fun that is called when the submit button is clicked
@@ -44,13 +47,18 @@ class SubmissionViewModel : ViewModel() {
             if (isValidEmail(email.value!!.trim())) {
                 //email is acceptable
                 _isValidEmail.value = true
+                //pop up Are you sure fragment
+                _popUpAreYouSureFragment.value = true
+
             } else {
                 //email is not valid
                 _isValidEmail.value = false
+                _popUpAreYouSureFragment.value = false
             }
         } else {
             //all or any of the fields are/is empty
             _isFieldEmpty.value = true
+            _popUpAreYouSureFragment.value = false
         }
 
     }

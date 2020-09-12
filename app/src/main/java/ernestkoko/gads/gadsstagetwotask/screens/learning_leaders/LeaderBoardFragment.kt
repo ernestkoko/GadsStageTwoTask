@@ -42,7 +42,7 @@ class LeaderBoardFragment : Fragment() {
                 call: Call<List<LearnerLeadersModel>>,
                 response: Response<List<LearnerLeadersModel>>
             ) {
-                Log.v("LeadeFrag", response.body().toString())
+                Log.v("LeaderFrag", response.body().toString())
                 adapter.submitList(response.body())
 
             }

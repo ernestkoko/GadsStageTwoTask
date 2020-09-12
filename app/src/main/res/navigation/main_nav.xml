@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/submissionFragment"
-        android:name="ernestkoko.gads.gadsstagetwotask.submit.SubmissionFragment"
+        android:name="ernestkoko.gads.gadsstagetwotask.screens.submit.SubmissionFragment"
         android:label="submission_fragment"
         tools:layout="@layout/submission_fragment" >
         <action
