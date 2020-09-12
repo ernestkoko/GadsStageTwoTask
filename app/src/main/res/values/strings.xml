@@ -23,4 +23,5 @@
     <string name="yes">Yes</string>
     <string name="submission_successful">Submission Successful</string>
     <string name="submission_not_successful">Submission Not Successful</string>
+    <string name="input_correct_email_format">Input correct email format</string>
 </resources>

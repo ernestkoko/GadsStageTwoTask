@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_nav"
-    app:startDestination="@id/myViewPager">
+    app:startDestination="@id/SPlashScreen">
 
     <fragment
         android:id="@+id/submissionFragment"
@@ -22,5 +22,16 @@
         <action
             android:id="@+id/action_myViewPager_to_submissionFragment"
             app:destination="@id/submissionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SPlashScreen"
+        android:name="ernestkoko.gads.gadsstagetwotask.SPlashScreen"
+        android:label="fragment_s_plash_screen"
+        tools:layout="@layout/fragment_s_plash_screen" >
+        <action
+            android:id="@+id/action_SPlashScreen_to_myViewPager"
+            app:destination="@id/myViewPager"
+            app:popUpTo="@id/SPlashScreen"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
